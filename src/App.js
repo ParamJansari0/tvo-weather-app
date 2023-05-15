@@ -22,7 +22,7 @@ function WeatherCard(props) {
   const weatherData = props.weatherData
 
   return (
-    weatherData != undefined &&
+    weatherData !== undefined &&
     <Card>
       <CardHeader>
         <Text>{weatherData.name}</Text>
