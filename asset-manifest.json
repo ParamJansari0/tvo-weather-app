@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/tvo-weather-app/static/js/main.da4980c4.js",
+    "static/js/787.0f0f52e2.chunk.js": "/tvo-weather-app/static/js/787.0f0f52e2.chunk.js",
+    "index.html": "/tvo-weather-app/index.html",
+    "main.da4980c4.js.map": "/tvo-weather-app/static/js/main.da4980c4.js.map",
+    "787.0f0f52e2.chunk.js.map": "/tvo-weather-app/static/js/787.0f0f52e2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.da4980c4.js"
+  ]
+}
