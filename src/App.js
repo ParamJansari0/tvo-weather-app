@@ -2,15 +2,15 @@ import React from 'react';
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
+  FormControl,
+  FormHelperText,
+  Input,
+  Button,
   VStack,
-  Code,
   Grid,
   theme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
 
 function App() {
   return (
@@ -19,19 +19,16 @@ function App() {
         <Grid minH="100vh" p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
           <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
+            <form>
+              <FormControl isRequired>
+                <Input
+                  name='cityName'
+                  placeholder='City Name'
+                />
+                <FormHelperText>Enter a city in Canada.</FormHelperText>
+              </FormControl>
+              <Button type='submit' my={5} color={'teal'}>Submit</Button>
+            </form>
           </VStack>
         </Grid>
       </Box>
