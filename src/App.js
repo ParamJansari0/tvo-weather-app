@@ -7,19 +7,39 @@ import {
   Input,
   Button,
   VStack,
+  Text,
+  Card,
+  CardHeader,
+  CardBody,
+  Image,
   Grid,
   theme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import axios from 'axios';
 
+function WeatherCard(props) {
+  const weatherData = props.weatherData
+
+  return (
+    weatherData != undefined &&
+    <Card>
+      <CardHeader>
+        <Text>{weatherData.name}</Text>
+      </CardHeader>
+      <CardBody>
+        <Image src={`${process.env.REACT_APP_OPEN_WEATHER_ICON_API}${weatherData?.weather[0].icon}@2x.png`}></Image>
+        <Text>{`${weatherData.main.temp.toFixed(0)} °C`}</Text>
+      </CardBody>
+    </Card>
+  )
+}
 function App() {
   const [cityName, setCityName] = useState('Toronto')
   const [weatherData, setWeatherData] = useState()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(event.target.cityName.value)
     setCityName(event.target.cityName.value)
   }
 
@@ -32,7 +52,6 @@ function App() {
       }
     })
       .then(function (response) {
-        console.log(response.data);
         setWeatherData(response.data)
       })
       .catch(function (error) {
@@ -46,6 +65,7 @@ function App() {
         <Grid minH="100vh" p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
           <VStack spacing={8}>
+            <WeatherCard weatherData={weatherData} />
             <form onSubmit={handleSubmit}>
               <FormControl isRequired>
                 <Input
